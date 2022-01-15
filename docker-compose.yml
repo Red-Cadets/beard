@@ -1,0 +1,70 @@
+version: '3.5'
+
+services:
+  front:
+    restart: unless-stopped
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    container_name: parser-front
+    image: parser-front
+    ports:
+     - 65005:80
+    volumes:
+      - ./front/:/app/
+    networks:
+      - frontend
+    env_file: .env
+
+  parser:
+    restart: unless-stopped
+    build:
+      context: ./parser
+      dockerfile: Dockerfile
+    container_name: parser-scrapper
+    image: parser-scrapper
+    ports:
+      - 9090:9090
+    networks:
+      - frontend
+      - backend
+    env_file: .env
+    shm_size: 2gb
+    depends_on:
+      - mongo
+
+  api:
+    restart: unless-stopped
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: parser-api
+    image: parser-api
+    ports:
+      - 8888:8888
+    networks:
+      - backend
+    env_file: .env
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:4.4
+    restart: unless-stopped
+    container_name: parser-mongodb
+    volumes:
+      - ./data/mongodb:/data/db
+    env_file: .env
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: $MONGO_USER
+      MONGO_INITDB_ROOT_PASSWORD: $MONGO_PASS
+    networks:
+      - backend
+
+networks:
+  frontend:
+    name: parser-frontend
+    driver: bridge
+  backend:
+    name: parser-backend
+    driver: bridge
