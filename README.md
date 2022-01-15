@@ -6,45 +6,23 @@
 <a href = "https://t.me/redcadets_chat"><img src="https://img.shields.io/badge/chat-telegram-blue?logo=telegram" /></a>
 
 <p align="center">
-    Language: <b>English</b> | <a href="https://link/to/ru/README.md">Русский</a>
+    Language: <b>English</b> | <a href="https://github.com/Red-Cadets/beard/blob/master/docs/README.ru.md">Русский</a>
 </p>
 
 <b>Beard - a comfortable way to track progress of your team during A/D competitions</b>
-    <br />
-    <a href="https://link/to/wikis/home"><strong>Explore the docs »</strong></a>
-    <br />
-</p>  
+</p>
 
 
-## Important Links
-
-<table>
-    <thead>
-        <tr>
-            <th>Links</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td rowspan=1><a href="https://link/to/-/wikis/Installation"><b>📖Installation Guide</b></a></td>
-            <td rowspan=6><img src="https://i.ibb.co/FDvzZYJ/image.png"></td>
-        </tr>
-        <tr>
-            <td rowspan=1><a href="https://link/to/-/wikis/home"><b>🌐Wiki</b></a></td>
-        </tr>
-        <tr>
-            <td rowspan=1><a href="https://link/to/-/releases"><b>🚀Releases</b></a></td>
-        </tr>
-        <tr>
-            <td rowspan=1><a href="https://t.me/redcadets_chat"><b>💬Telegram</b></a></td>
-        </tr>
-    </tbody>
-</table>
+<img src="https://i.ibb.co/FDvzZYJ/image.png">
 
 # ✨ Features
 
-* TODO
+- Parsing of supported scoreboards (hackerdom/forcad)
+- Score graph of all teams with automatic scaling for your team
+- Primitive prediction of the score graph
+- Flag loss graph for each service
+- Graph of receiving flags for each service (similar to the effectiveness of exploits)
+- Telegram alerts about flag loss, service status, place changing (use [courier](https://github.com/Red-Cadets/courier))
 
 ## 🛠 Supported scoreboards
 
@@ -52,22 +30,22 @@
 | ------------------ | ---- | ------ | -----------
 | ForcAD | https://github.com/pomo-mondreganto/ForcAD | ✅ | 
 | HackerDom checksystem | https://github.com/HackerDom/checksystem | ✅ | parsing old-style view at /board
+
 ## 🙋 Table of Contents
-* 📖 [Fast Installation Guide](link/to/repo)
-    * 🐋 [Docker Usage](https://link/to/repo#whale-docker)
-* 🦜 [Telegram](https://t.me/redcadets_chat)
-* 🖼️ [Gallery](https://link/to/repo#-gallery)
-* 🎪 [Community](https://link/to/repo#-community)
-* 📝 [TODO](https://link/to/repo#-todo)
+* 📖 [Fast Installation Guide](https://github.com/Red-Cadets/beard#-fast-installation-guide)
+    * 🐋 [Docker Usage](https://github.com/Red-Cadets/beard#whale-docker)
+* 🖼️ [Gallery](https://github.com/Red-Cadets/beard#-gallery)
+* 🎪 [Community](https://github.com/Red-Cadets/beard#-community)
+* 📝 [TODO](https://github.com/Red-Cadets/beard#-todo)
 
 
 # 📖 Fast Installation Guide
 
-## Docker
+## :whale: Docker 
 
 Clone repository
 ```bash
-git clone https://link/to/repo.git
+git clone https://github.com/Red-Cadets/beard.git
 ```
 Go to folder:
 ```bash
@@ -101,9 +79,7 @@ and go to URL
 http://127.0.0.1:65005/
 ```
 
-
 ## 🖼️ Gallery
-
 
 ||
 |:-------------------------:|
@@ -121,10 +97,9 @@ Open to pull requests and other forms of collaboration!
 
 We communicate over Telegram. [Click here](https://t.me/redcadets_chat) to join our Telegram community!
 
-
 ## 📝 TODO
 
-* TODO
+> Open to ideas!
 
 # ❤️ Thanks to
 
