@@ -89,7 +89,8 @@ http://127.0.0.1:65005/
 |Flag loss graph|
 |![Главная страница](https://i.ibb.co/JCQD2g6/Echarts-got.png)|
 |Graph of receiving flags|
-
+|![Главная страница](https://i.ibb.co/VCMzK05/image.png)|
+|Telegram alerts|
 # 🎪 Community
 
 If you have any feature suggestions or bugs, leave a Github issue.
