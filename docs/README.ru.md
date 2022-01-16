@@ -27,14 +27,14 @@
 | **A/D framework**  | Ссылка | Статус | Описание
 | ------------------ | ---- | ------ | -----------
 | ForcAD | https://github.com/pomo-mondreganto/ForcAD | ✅ | 
-| HackerDom checksystem | https://github.com/HackerDom/checksystem | ✅ | parsing old-style view at /board
+| HackerDom checksystem | https://github.com/HackerDom/checksystem | ✅ | парсинг старой версии на /board
 
 ## 🙋 Содержание
 * 📖 [Инструкция по быстрой установке](https://github.com/Red-Cadets/beard/blob/master/docs/README.ru.md#-инструкция-по-быстрой-установке)
     * 🐋 [Docker](https://github.com/Red-Cadets/beard/blob/master/docs/README.ru.md#whale-docker)
 * 🖼️ [Галерея скриншотов](https://github.com/Red-Cadets/beard/blob/master/docs/README.ru.md#-галерея)
 * 🎪 [Сообщество](https://github.com/Red-Cadets/beard/blob/master/docs/README.ru.md#-сообщество)
-* 📝 [Планы на будущее](https://github.com/Red-Cadets/beard/blob/master/docs/README.ru.md-планы-на-будущее)
+* 📝 [Планы на будущее](https://github.com/Red-Cadets/beard/blob/master/docs/README.ru.md#-планы-на-будущее)
 
 
 # 📖 Инструкция по быстрой установке]
