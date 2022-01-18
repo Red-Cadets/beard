@@ -294,7 +294,7 @@ export default {
   methods: {
     getInfo: function () {
       // ? Получаем информацию из бд
-      this.axios.get(`http://${window.location.hostname}:8888/api/info`)
+      this.axios.get(`http://${window.location.host}/api/info`)
         .then(result => {
           result = result.data
           var teamsInfo = {}
@@ -379,7 +379,7 @@ export default {
             })
           }
         })
-      this.axios.get(`http://${window.location.hostname}:8888/api/team_info`)
+      this.axios.get(`http://${window.location.host}/api/team_info`)
         .then(result => {
           result = result.data
           if (result.length > 0) {
@@ -399,7 +399,7 @@ export default {
         })
     },
     storeConfig: function () {
-      this.axios.get(`http://${window.location.hostname}:8888/api/config`)
+      this.axios.get(`http://${window.location.host}/api/config`)
         .then(result => {
           this.config = result.data
         })

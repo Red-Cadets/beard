@@ -8,12 +8,10 @@ services:
       dockerfile: Dockerfile
     container_name: parser-front
     image: parser-front
-    ports:
-     - 65005:80
     volumes:
       - ./front/:/app/
     networks:
-      - frontend
+      - parser
     env_file: .env
 
   parser:
@@ -23,11 +21,8 @@ services:
       dockerfile: Dockerfile
     container_name: parser-scrapper
     image: parser-scrapper
-    ports:
-      - 9090:9090
     networks:
-      - frontend
-      - backend
+      - parser
     env_file: .env
     shm_size: 2gb
     depends_on:
@@ -40,10 +35,8 @@ services:
       dockerfile: Dockerfile
     container_name: parser-api
     image: parser-api
-    ports:
-      - 8888:8888
     networks:
-      - backend
+      - parser
     env_file: .env
     depends_on:
       - mongo
@@ -59,12 +52,22 @@ services:
       MONGO_INITDB_ROOT_USERNAME: $MONGO_USER
       MONGO_INITDB_ROOT_PASSWORD: $MONGO_PASS
     networks:
-      - backend
+      - parser
+
+  nginx:
+    image: nginx:1.17
+    container_name: parser-nginx
+    restart: unless-stopped
+    volumes:
+      - ./nginx/http.conf:/etc/nginx/nginx.conf
+    ports:
+      - 65005:80
+    depends_on:
+      - front
+    networks:
+      - parser
 
 networks:
-  frontend:
-    name: parser-frontend
-    driver: bridge
-  backend:
-    name: parser-backend
+  parser:
+    name: parser-network
     driver: bridge
