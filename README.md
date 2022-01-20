@@ -52,7 +52,6 @@ Go to folder:
 cd beard
 ```
 Change .env with your settings:
-- `HOST` - IP address or domain on which the application will be deployed. This parameter is required to configure CORS. Example: `http://8.8.8.8 ` or `http://example.com `
 - `SCOREBOARD` - Scoreboard location. Example: `http://6.0.0.1/board`
 - `TEAM` - Team name or team IP to display information about. Example: `Red Cadets` or `10.10.1.15`
 - `TYPE` - Scoreboard type. Example: `forcad` or `hackerdom`

@@ -1,11 +1,9 @@
 import os
 
 from flask import Flask, jsonify
-from flask_cors import CORS
 from pymongo import MongoClient
 
 CONFIG = {
-    "HOST":         os.getenv('HOST', 'http://127.0.0.1'),
     "SCOREBOARD":   os.getenv('SCOREBOARD', 'http://127.0.0.1:8090'),
     "TEAM":         os.getenv('TEAM', 'Red Cadets'),
     "TYPE":         os.getenv('TYPE', 'forcad'),
@@ -17,8 +15,6 @@ CONFIG = {
 }
 
 app = Flask(__name__)
-CORS(app, resources={
-    r"/api/*": {"origins": f"{CONFIG['HOST']}:65005"}})
 
 mongo_client = MongoClient(
     f"mongodb://{CONFIG['MONGO_USER']}:{CONFIG['MONGO_PASS']}@mongo:27017/")
