@@ -9,8 +9,8 @@ import axios from 'axios'
 Vue.use(VueNativeSock, `ws://${window.location.host}/ws/`, {
   reconnection: true,
   reconnectionAttempts: 5,
-  reconnectionDelay: 500,
-});
+  reconnectionDelay: 500
+})
 Vue.use(VueAxios, axios)
 
 Vue.config.productionTip = false

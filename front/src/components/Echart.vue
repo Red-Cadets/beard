@@ -528,6 +528,7 @@ details {
 }
 
 summary {
+  font-family: 'Play', sans-serif;
   font-weight: bold;
   margin: -.5em -.5em 0;
   padding: .5em;
