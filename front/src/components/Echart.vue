@@ -2,13 +2,23 @@
   <div>
     <h1 style="font-family: 'Play', sans-serif;">Текущий раунд: {{ CurRound }}</h1>
     <h1 style="font-family: 'Play', sans-serif;">Времени до чека: {{ Tick }}</h1>
-    <v-chart v-if="this.config.EXTEND_ROUND" class='chart' :option='options' autoresize/>
-    <v-chart class='chart' :option='flagsLost'/>
-    <v-chart class='chart' :option='flagsGot'/>
+    <details open>
+      <summary>Scores</summary>
+      <v-chart v-if="this.config.EXTEND_ROUND" class='chart' :option='options' autoresize/>
+    </details>
+    <details open>
+      <summary>Flags lost</summary>
+      <v-chart class='chart' :option='flagsLost' autoresize/>
+    </details>
+    <details open>
+      <summary>Flags got</summary>
+      <v-chart class='chart' :option='flagsGot' autoresize/>
+    </details>
   </div>
 </template>
 
 <script>
+// TODO: рефакторинг жесткий
 import { use } from 'echarts/core'
 
 import { CanvasRenderer } from 'echarts/renderers'
@@ -81,6 +91,12 @@ export default {
         tooltip: {
           position: 'top'
         },
+        grid: {
+          left: '1%',
+          right: '5%',
+          top: '13%',
+          containLabel: true
+        },
         toolbox: {
           feature: {
             dataZoom: {
@@ -122,7 +138,7 @@ export default {
             color: [ '#7AFB95', '#0B7621' ] // Зелёный
           },
           orient: 'vertical',
-          right: '5%',
+          right: '0%',
           bottom: '30%'
         },
         series: [
@@ -147,6 +163,12 @@ export default {
       return {
         tooltip: {
           position: 'top'
+        },
+        grid: {
+          left: '1%',
+          right: '5%',
+          top: '13%',
+          containLabel: true
         },
         toolbox: {
           feature: {
@@ -184,7 +206,7 @@ export default {
             color: [ '#F2A1A1', '#CB0000' ] // Красный
           },
           orient: 'vertical',
-          right: '5%',
+          right: '0%',
           bottom: '30%'
         },
         series: [
@@ -228,13 +250,6 @@ export default {
     },
     options () {
       return {
-        title: {
-          text: 'Scores',
-          left: 'center',
-          textStyle: {
-            fontSize: 30
-          }
-        },
         tooltip: {
           trigger: 'axis'
         },
@@ -364,6 +379,24 @@ export default {
             }
             // ? Вертикальная линяя текущего раунда
             // TODO Переписать костыль
+            // ХЗ ПОЧЕМУ СЛЕДУЮЩИЙ КОД У ВАС НЕ РОБИТ)
+            /*
+              markLine: {
+                silent: true,
+                symbol: [],
+                label: {
+                  show: false,
+                },
+                lineStyle: {
+                  color: '#333'
+                },
+                data: [
+                  {
+                    xAxis: result[result.length - 1]['time']
+                  },
+                ]
+              }
+            */
             var vertData = []
             for (i = 0; i < this.maxScore; i += this.maxScore / 100) {
               vertData.push([result[result.length - 1]['time'], i])
@@ -485,5 +518,27 @@ export default {
 <style scoped>
 .chart {
   height: 600px;
+}
+
+details {
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: .5em .5em 0;
+  margin-bottom: .5em;
+}
+
+summary {
+  font-weight: bold;
+  margin: -.5em -.5em 0;
+  padding: .5em;
+}
+
+details[open] {
+  padding: .5em;
+}
+
+details[open] summary {
+  border-bottom: 1px solid #aaa;
+  margin-bottom: .5em;
 }
 </style>
