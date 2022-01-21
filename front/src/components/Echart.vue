@@ -3,8 +3,8 @@
     <h1 style="font-family: 'Play', sans-serif;">Текущий раунд: {{ CurRound }}</h1>
     <h1 style="font-family: 'Play', sans-serif;">Времени до чека: {{ Tick }}</h1>
     <v-chart v-if="this.config.EXTEND_ROUND" class='chart' :option='options' autoresize/>
-    <v-chart class='chart' :option='flagsLost'/>
-    <v-chart class='chart' :option='flagsGot'/>
+    <v-chart class='chart' :option='flagsLost' autoresize/>
+    <v-chart class='chart' :option='flagsGot' autoresize/>
   </div>
 </template>
 
@@ -81,6 +81,12 @@ export default {
         tooltip: {
           position: 'top'
         },
+        grid: {
+          left: '1%',
+          right: '5%',
+          top: '13%',
+          containLabel: true
+        },
         toolbox: {
           feature: {
             dataZoom: {
@@ -122,7 +128,7 @@ export default {
             color: [ '#7AFB95', '#0B7621' ] // Зелёный
           },
           orient: 'vertical',
-          right: '5%',
+          right: '0%',
           bottom: '30%'
         },
         series: [
@@ -147,6 +153,12 @@ export default {
       return {
         tooltip: {
           position: 'top'
+        },
+        grid: {
+          left: '1%',
+          right: '5%',
+          top: '13%',
+          containLabel: true
         },
         toolbox: {
           feature: {
@@ -184,7 +196,7 @@ export default {
             color: [ '#F2A1A1', '#CB0000' ] // Красный
           },
           orient: 'vertical',
-          right: '5%',
+          right: '0%',
           bottom: '30%'
         },
         series: [
@@ -364,6 +376,24 @@ export default {
             }
             // ? Вертикальная линяя текущего раунда
             // TODO Переписать костыль
+            // ХЗ ПОЧЕМУ СЛЕДУЮЩИЙ КОД У ВАС НЕ РОБИТ)
+            /*
+              markLine: {
+                silent: true,
+                symbol: [],
+                label: {
+                  show: false,
+                },
+                lineStyle: {
+                  color: '#333'
+                },
+                data: [
+                  {
+                    xAxis: result[result.length - 1]['time']
+                  },
+                ]
+              }
+            */
             var vertData = []
             for (i = 0; i < this.maxScore; i += this.maxScore / 100) {
               vertData.push([result[result.length - 1]['time'], i])
