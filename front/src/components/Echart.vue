@@ -2,13 +2,23 @@
   <div>
     <h1 style="font-family: 'Play', sans-serif;">Текущий раунд: {{ CurRound }}</h1>
     <h1 style="font-family: 'Play', sans-serif;">Времени до чека: {{ Tick }}</h1>
-    <v-chart v-if="this.config.EXTEND_ROUND" class='chart' :option='options' autoresize/>
-    <v-chart class='chart' :option='flagsLost' autoresize/>
-    <v-chart class='chart' :option='flagsGot' autoresize/>
+    <details open>
+      <summary>Scores</summary>
+      <v-chart v-if="this.config.EXTEND_ROUND" class='chart' :option='options' autoresize/>
+    </details>
+    <details open>
+      <summary>Flags lost</summary>
+      <v-chart class='chart' :option='flagsLost' autoresize/>
+    </details>
+    <details open>
+      <summary>Flags got</summary>
+      <v-chart class='chart' :option='flagsGot' autoresize/>
+    </details>
   </div>
 </template>
 
 <script>
+// TODO: рефакторинг жесткий
 import { use } from 'echarts/core'
 
 import { CanvasRenderer } from 'echarts/renderers'
@@ -240,13 +250,6 @@ export default {
     },
     options () {
       return {
-        title: {
-          text: 'Scores',
-          left: 'center',
-          textStyle: {
-            fontSize: 30
-          }
-        },
         tooltip: {
           trigger: 'axis'
         },
@@ -515,5 +518,27 @@ export default {
 <style scoped>
 .chart {
   height: 600px;
+}
+
+details {
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: .5em .5em 0;
+  margin-bottom: .5em;
+}
+
+summary {
+  font-weight: bold;
+  margin: -.5em -.5em 0;
+  padding: .5em;
+}
+
+details[open] {
+  padding: .5em;
+}
+
+details[open] summary {
+  border-bottom: 1px solid #aaa;
+  margin-bottom: .5em;
 }
 </style>
