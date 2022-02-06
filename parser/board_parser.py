@@ -21,15 +21,15 @@ def remove_trash(text):
 
 
 def return_status(status_code):
-    if status_code == "status-110" or status_code == "status_":
+    if status_code == "status-110" or status_code == "status_" or 'rgb(255, 255, 0)' in status_code:
         return "CHECK FAILED"
-    elif status_code == 'status-101' or status_code == "status_up":
+    elif status_code == 'status-101' or status_code == "status_up" or 'rgb(125, 252, 116)' in status_code:
         return "UP"
-    elif status_code == 'status-102' or status_code == "status_corrupt":
+    elif status_code == 'status-102' or status_code == "status_corrupt" or 'rgb(81, 145, 255)' in status_code:
         return "CORRUPT"
-    elif status_code == 'status-103' or status_code == "status_mumble":
+    elif status_code == 'status-103' or status_code == "status_mumble" or 'rgb(255, 145, 20)' in status_code:
         return "MUMBLE"
-    elif status_code == 'status-104' or status_code == "status_down":
+    elif status_code == 'status-104' or status_code == "status_down" or 'rgb(255, 91, 91);' in status_code:
         return "DOWN"
     else:
         return "ERROR, UNKNOWN STATUS CODE"
@@ -155,7 +155,7 @@ def get_services_info_hackerdom(soup, services):
 def get_status_info(driver, team):
     services_name = get_services(driver, None)
     services = team.find_elements_by_class_name("service-cell")
-    return {services_name[number % len(services)]: return_status(code.get_attribute("class").split()[1]) for number, code in enumerate(services)}
+    return {services_name[number % len(services)]: return_status(code.get_attribute("style")) for number, code in enumerate(services)}
 
 
 def get_soup_by_address(address):
