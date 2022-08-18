@@ -1,8 +1,0 @@
-selenium==3.7.0
-requestium==0.1.9
-bs4==0.0.1
-requests>=2.20.0
-coloredlogs
-webdriver-manager
-websockets
-pymongo

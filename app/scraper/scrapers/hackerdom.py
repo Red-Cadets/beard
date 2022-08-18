@@ -1,0 +1,2 @@
+class HackerdomScraper:
+    pass

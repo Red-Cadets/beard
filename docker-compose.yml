@@ -14,20 +14,6 @@ services:
       - parser
     env_file: .env
 
-  parser:
-    restart: unless-stopped
-    build:
-      context: ./parser
-      dockerfile: Dockerfile
-    container_name: parser-scrapper
-    image: parser-scrapper
-    networks:
-      - parser
-    env_file: .env
-    shm_size: 2gb
-    depends_on:
-      - mongo
-
   api:
     restart: unless-stopped
     build:
