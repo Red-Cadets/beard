@@ -1,19 +1,18 @@
 <template>
-  <div id="app">
-    <echart/>
-  </div>
+  <v-app>
+    <v-main>
+      <router-view/>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import echart from './components/Echart'
 
 export default {
   name: 'App',
-  components: {
-    echart
-  }
+
+  data: () => ({
+    //
+  }),
 }
 </script>
-
-<style>
-</style>
